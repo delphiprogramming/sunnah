@@ -1,0 +1,20 @@
+{
+	"servers": [
+		{
+			"host": "hostname",
+			"username": "root",
+			"pem": "~/.ssh/id_rsa"
+		}
+	],
+	"setupMongo": true,
+	"setupNode": true,
+	"nodeVersion": "0.10.36",
+	"setupPhantom": true,
+	"enableUploadProgressBar": true,
+	"appName": "meteor",
+	"app": "/path/to/the/app",
+	"env": {
+		"ROOT_URL": "http://myapp.com"
+	},
+	"deployCheckWaitTime": 15
+}

@@ -1,0 +1,23 @@
+#home-search {
+	padding-top: 50px;
+}
+
+#home-text {
+	text-align: center;
+	margin-top: 30px;
+}
+
+#home-text > h2 {
+	color: #ddd;
+	line-height: 1.5;
+}
+
+#home-text > h4 {
+	color: #4cae4c;
+	line-height: 1.5;
+	margin-top: 30px;
+}
+
+#search-btn {
+	background: lightgreen;
+}

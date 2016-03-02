@@ -1,0 +1,27 @@
+<template name="onlyIfAdmin">
+	{{#if authInProcess}}
+	<main class="valign-wrapper">
+		<h4 class="center-block">Authenticating...</h4>
+	</main>
+	{{else}}
+		{{#if loggedIn}}
+			{{#if isAdmin}}
+			{{> UI.contentBlock }}
+			{{else}}
+			<main class="valign-wrapper">
+				<h4 class="center-block">You are not an admin.</h4>
+			</main>
+			{{/if}}
+		{{else}}
+		<main class="valign-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col s12 m8 offset-m2 l6 offset-l3 z-depth-1" style="margin-top: 20px">
+						{{> atForm}}
+					</div>
+				</div>
+			</div>
+		</main>
+		{{/if}}
+	{{/if}}
+</template>

@@ -1,0 +1,18 @@
+<template name="adminTranslate">
+	{{#onlyIfAdmin}}
+    <div id="main">
+		<div class="row menu">
+			<div class="container">
+				<a href="/admin"><div class="col-md-4 center">Dashboard</div></a>
+				<div class="col-md-4 center">Translate</div>
+				<a href="/admin/users"><div class="col-md-4 center">Users</div></a>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mt30">
+				Enable new languages and manage translations of all content.
+			</div>
+		</div>
+	</div>
+	{{/onlyIfAdmin}}
+</template>

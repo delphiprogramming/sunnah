@@ -1,0 +1,18 @@
+<template name="admin">
+	{{#onlyIfAdmin}}
+    <div id="main">
+		<div class="row menu">
+			<div class="container">
+				<div class="col-md-4 center">Dashboard</div>
+				<a href="/admin/translate"><div class="col-md-4 center">Translate</div></a>
+				<a href="/admin/users"><div class="col-md-4 center">Users</div></a>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mt30">
+				Latest adds, removes and edits with user's who did it...
+			</div>
+		</div>
+	</div>
+	{{/onlyIfAdmin}}
+</template>

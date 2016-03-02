@@ -1,0 +1,200 @@
+<template name="snap">
+    <div id="main" class="nomenu">
+		<div class="container">
+			<div class="row center">
+				<h4>This page will allow you to schedule automatic posting to your Facebook profile or pages up to once per hour.  The settings (when this feature is complete) will allow you to choose the timing (in UTC) and type of post (such as Quran ayat, Hadith, Quote of Scholars, Dawah sayings, etc.).  For suggestions or comments you can contact us via our <a href="/contact">Contact Page</a> while this is in development.</h4>
+			</div>
+			<div class="row">
+				{{#if facebook}}
+				<table class="st mt30">
+					<thead>
+					<td class="na sh">Your Profile</td>
+					<td class="hr sh">00</td>
+					<td class="hr sh">01</td>
+					<td class="hr sh">02</td>
+					<td class="hr sh">03</td>
+					<td class="hr sh">04</td>
+					<td class="hr sh">05</td>
+					<td class="hr sh">06</td>
+					<td class="hr sh">07</td>
+					<td class="hr sh">08</td>
+					<td class="hr sh">09</td>
+					<td class="hr sh">10</td>
+					<td class="hr sh">11</td>
+					<td class="hr sh">12</td>
+					<td class="hr sh">13</td>
+					<td class="hr sh">14</td>
+					<td class="hr sh">15</td>
+					<td class="hr sh">16</td>
+					<td class="hr sh">17</td>
+					<td class="hr sh">18</td>
+					<td class="hr sh">19</td>
+					<td class="hr sh">20</td>
+					<td class="hr sh">21</td>
+					<td class="hr sh">22</td>
+					<td class="hr sh">23</td>
+					</thead>
+					<tr>
+						<td class="na">{{fbName}}</td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+					</tr>
+				</table>
+
+				{{#if pages}}
+				<table class="st mt30">
+					<thead>
+					<td class="na sh" width="22%">Your Pages {{pCount}}</td>
+					<td class="hr sh">00</td>
+					<td class="hr sh">01</td>
+					<td class="hr sh">02</td>
+					<td class="hr sh">03</td>
+					<td class="hr sh">04</td>
+					<td class="hr sh">05</td>
+					<td class="hr sh">06</td>
+					<td class="hr sh">07</td>
+					<td class="hr sh">08</td>
+					<td class="hr sh">09</td>
+					<td class="hr sh">10</td>
+					<td class="hr sh">11</td>
+					<td class="hr sh">12</td>
+					<td class="hr sh">13</td>
+					<td class="hr sh">14</td>
+					<td class="hr sh">15</td>
+					<td class="hr sh">16</td>
+					<td class="hr sh">17</td>
+					<td class="hr sh">18</td>
+					<td class="hr sh">19</td>
+					<td class="hr sh">20</td>
+					<td class="hr sh">21</td>
+					<td class="hr sh">22</td>
+					<td class="hr sh">23</td>
+					</thead>
+					{{#each pages}}
+					<tr>
+						<td class="na" width="22%" data-access_token="{{access_token}}" data-page_id="{{id}}">{{name}}</td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+					</tr>
+					{{/each}}
+				</table>
+				{{else}}
+				...
+				{{/if}}
+
+				{{#if isInRole 'admin,owner'}}
+				{{#if groups}}
+				<div class="row center mt30">
+					<h5 style="color:#999">Admins Only.  If an application makes too many posts to groups, Facebook will block it completely.  This is why this section is for admins only and you must communicate with the other admins before adding posts here to prevent blocking from Facebook.</h5>
+				</div>
+				<table class="st mt30">
+					<thead>
+					<td class="na sh" width="22%">Your Groups {{gCount}}</td>
+					<td class="hr sh">00</td>
+					<td class="hr sh">01</td>
+					<td class="hr sh">02</td>
+					<td class="hr sh">03</td>
+					<td class="hr sh">04</td>
+					<td class="hr sh">05</td>
+					<td class="hr sh">06</td>
+					<td class="hr sh">07</td>
+					<td class="hr sh">08</td>
+					<td class="hr sh">09</td>
+					<td class="hr sh">10</td>
+					<td class="hr sh">11</td>
+					<td class="hr sh">12</td>
+					<td class="hr sh">13</td>
+					<td class="hr sh">14</td>
+					<td class="hr sh">15</td>
+					<td class="hr sh">16</td>
+					<td class="hr sh">17</td>
+					<td class="hr sh">18</td>
+					<td class="hr sh">19</td>
+					<td class="hr sh">20</td>
+					<td class="hr sh">21</td>
+					<td class="hr sh">22</td>
+					<td class="hr sh">23</td>
+					</thead>
+					{{#each groups}}
+					<tr>
+						<td class="na" data-group_id="{{id}}">{{name}}</td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+						<td class="hr"> </td>
+					</tr>
+					{{/each}}
+				</table>
+				{{/if}}
+				{{else}}
+				...
+				{{/if}}
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</template>

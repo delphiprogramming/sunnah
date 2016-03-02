@@ -1,0 +1,126 @@
+/* -------------
+   Layout Styles
+   ------------- */
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+	/* Margin bottom by footer height */
+	margin-bottom: 50px;
+}
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 50px;
+	background: rgba(1,1,1,.8) !important;
+	border-top: 1px solid green !important;
+}
+
+a:hover {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+nav {
+	background: rgba(1,1,1,.8) !important;
+	border-bottom: 1px solid green !important;
+}
+
+.navbar-brand {
+	padding: 15px 15px;
+}
+
+#navbar > ul > li > a {
+	padding: 30px 15px;
+	color: #ddd;
+	font-weight: bold;
+}
+
+#main {
+	margin-top: 80px;
+}
+#main.nomenu {
+	margin-top: 100px;
+}
+
+footer .copy,
+footer .links {
+	padding: 15px;
+}
+footer .social {
+	padding: 10px;
+}
+
+footer .copy,
+footer .copy a,
+footer .links a,
+footer .follow {
+	font-weight: bold;
+	color: #4cae4c;
+}
+
+footer .sep {
+	font-size: .8em;
+	color: #666;
+}
+
+footer .links .active {
+	color: #fff !important;
+}
+
+.left { text-align: left; }
+.right { text-align: right; }
+.center { text-align: center; }
+.justify { text-align: justify; }
+
+.valign {
+	display: flex;
+	align-items: center;
+}
+
+#login-dropdown-list.open .dropdown-toggle {
+	margin-right: 1px;
+	background-color: rgba(0,128,0,.8) !important;
+}
+.navbar-nav > li.active > a,
+.navbar-nav > li > .dropdown-menu { background-color: rgba(0,128,0,.8) !important; }
+.navbar-nav > li.inactive > a { color: #666 !important; text-decoration: none !important; }
+
+#login-email,
+#login-password,
+#login-buttons-password,
+#login-other-options,
+.navbar-nav > li > .dropdown-menu > .or {
+	display: none;
+}
+
+
+#login-other-options > a {
+	color: skyblue;
+}
+#forgot-password-link {
+	margin-left: 10px;
+}
+#signup-link {
+	margin-right: 10px;
+}
+
+.mt10 { margin-top: 10px; }
+.mt20 { margin-top: 20px; }
+.mt30 { margin-top: 30px; }
+.mt100 { margin-top: 100px; }
+
+.row.menu {
+	background: green;
+	height: 30px;
+	line-height: 30px;
+	font-weight: bold;
+	color: lightgreen;
+}
+.row.menu a {
+	color: #ddd;
+}
