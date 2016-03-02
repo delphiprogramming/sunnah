@@ -10,3 +10,4 @@ Sunnah.co is a waqf managed by the us-Sunnah Foundation to make Islamic informat
 4. `cd sunnah`
 5. Configure Facebook and Google OAuth services for localhost in `local-config.json`
 6. `meteor --settings local-config.json`
+
