@@ -82,6 +82,9 @@ footer .links .active {
 	align-items: center;
 }
 
+#lang-dropdown-list.open .dropdown-toggle {
+	background-color: rgba(0,128,0,.8) !important;
+}
 #login-dropdown-list.open .dropdown-toggle {
 	margin-right: 1px;
 	background-color: rgba(0,128,0,.8) !important;
@@ -109,9 +112,17 @@ footer .links .active {
 	margin-right: 10px;
 }
 
+.lang-button {
+	margin: 0px;
+	padding: 0px;
+	background-color: rgba(1,1,1,.01) !important;
+	color: #fff;
+}
+
 .mt10 { margin-top: 10px; }
 .mt20 { margin-top: 20px; }
 .mt30 { margin-top: 30px; }
+.mt50 { margin-top: 50px; }
 .mt100 { margin-top: 100px; }
 
 .row.menu {

@@ -18,15 +18,14 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse navbar-right">
 				<ul class="nav navbar-nav">
-					<li class="{{active 'home'}}"><a href="/">Home</a></li>
-					<li class="inactive"><a>People</a></li>
-					<li class="inactive"><a>Quran</a></li>
+					<li class="{{active 'quran'}}"><a href="/quran">Quran</a></li>
 					<li class="inactive"><a>Hadith</a></li>
 					<li class="inactive"><a>Scholars</a></li>
 					<li class="inactive"><a>Books</a></li>
 					<li class="inactive"><a>Articles</a></li>
 					<li class="inactive"><a>Quotes</a></li>
 					<li class="{{active 'tools'}}"><a href="/tools">Tools</a></li>
+					{{> langButtons }}
 					{{> loginButtons }}
 				</ul>
 			</div><!--/.nav-collapse -->
@@ -62,9 +61,18 @@
     </footer>
 </template>
 
+<template name="langButtons">
+	<li id="lang-dropdown-list" class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-language"></i> English <b class="caret"></b></a>
+		<div class="dropdown-menu">
+			<button class="lang-button btn btn-block">Indonesian</button>
+		</div>
+	</li>
+</template>	
+
 <template name="my_loginButtonsLoggedOutDropdown">
   <li id="login-dropdown-list" class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <b class="caret"></b></a>
+    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Login <b class="caret"></b></a>
     <div class="dropdown-menu">
         {{> _loginButtonsLoggedOutAllServices}}
     </div>

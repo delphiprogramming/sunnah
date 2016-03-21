@@ -6,7 +6,7 @@ Template.layout.helpers({
 		if (tab === page)
 			return 'active';
 		return '';
-	},
+	}
 });
 
 Template._loginButtonsAdditionalLoggedInDropdownActions.helpers({

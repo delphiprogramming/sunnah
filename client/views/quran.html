@@ -1,0 +1,38 @@
+<template name="quran">
+    <div id="main" class="nomenu">
+		<div class="container">
+			{{#if ready}}
+			
+			<div class="row center mt10">
+				<div id="quran-search" class="col-md-6 col-md-push-3">
+					<div class="input-group input-group-lg">
+						<input id="qsearch" class="form-control" type="text" aria-describedby="search-btn" placeholder="Quran search coming soon." disabled>
+						<span id="qsearch-btn" class="input-group-addon"><i class="fa fa-search"></i></span>
+					</div>
+				</div>
+			</div>
+			<div class="row center mt50">
+				{{#each surat}}
+				<div class="col-md-3 col-sm-6">{{no}}) {{name}}</div>
+				{{/each}}
+			</div>
+			
+			{{else}}
+			{{#if isAdmin}}
+
+			<div class="col-md-8 col-md-push-2" style="color:red">ADMIN: The Quran is currently marked not ready in this language on our site because it is missing Surat or Ayat.  This language will immediately come available once all ayat are copied or uploaded. Regular users will not see this but will instead see a "coming soon" placeholder until ready.  Jazakallahu khair.</div>
+			<div class="row center mt100">
+				{{#each surat}}
+				<div class="col-md-3 col-sm-6">{{no}}) {{name}} {{{percent}}}</div>
+				{{/each}}
+			</div>
+
+			{{else}}
+			
+			<div class="col-md-8 col-md-push-2">The Quran is currently not available in this language on our site.  Our contributors will do our best to make it available as soon as possible.  If you would like to help please contact us via the contact link at the bottom middle of this page.  Jazakallahu khair.</div>
+			
+			{{/if}}
+			{{/if}}
+		</div>
+	</div>
+</template>
