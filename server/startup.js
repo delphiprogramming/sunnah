@@ -67,6 +67,12 @@ Meteor.startup(function () {
 		Quotes.insert({name:um,quote:"There is no good in a people who do not advise one another and there is no good in those who do not love advice. The best of companions are those who mutually love and advise one another.",source:"Risalat al-Mustarshideen"});
 		Quotes.insert({name:um,quote:"Do not think about a word that exits from a Muslim’s mouth except that you interpret it in the best manner.",source:"Ameelah, p. 395"});
 	}
+	if (Langs.find({}).count() === 0) {
+		console.log('** Languages database empty, filling some example entries.');
+		Langs.insert({ref:'ar',name:'Arabic',native:'العَرَبِية‎',active:false});
+		Langs.insert({ref:'en',name:'English',native:'English',active:true});
+		Langs.insert({ref:'id',name:'Indonesian',native:'Bahasa Indonesia',active:true});
+	}
 
 	// Start SyncedCron for SNAP
 	SyncedCron.start();

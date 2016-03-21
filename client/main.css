@@ -82,13 +82,16 @@ footer .links .active {
 	align-items: center;
 }
 
-#lang-dropdown-list.open .dropdown-toggle {
-	background-color: rgba(0,128,0,.8) !important;
-}
+#lang-dropdown-list.open .dropdown-toggle,
 #login-dropdown-list.open .dropdown-toggle {
-	margin-right: 1px;
 	background-color: rgba(0,128,0,.8) !important;
 }
+
+#lang-dropdown-list > div,
+#login-dropdown-list > div {
+	margin-right: -1px !important;
+}
+
 .navbar-nav > li.active > a,
 .navbar-nav > li > .dropdown-menu { background-color: rgba(0,128,0,.8) !important; }
 .navbar-nav > li.inactive > a { color: #666 !important; text-decoration: none !important; }

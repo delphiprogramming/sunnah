@@ -63,9 +63,11 @@
 
 <template name="langButtons">
 	<li id="lang-dropdown-list" class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-language"></i> English <b class="caret"></b></a>
+		<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-language"></i> {{currentLang}} <b class="caret"></b></a>
 		<div class="dropdown-menu">
-			<button class="lang-button btn btn-block">Indonesian</button>
+			{{#each otherLangs}}
+			<button class="lang-button btn btn-block" id="lang-{{ref}}">{{native}}</button>
+			{{/each}}
 		</div>
 	</li>
 </template>	
