@@ -18,6 +18,29 @@ Meteor.startup(function () {
 	}
 	
 	// Check Databases and give starter data if empty
+	if (Quran.find({}).count() === 0) {
+		console.log('** Quran database empty, filling some example entries.');
+		Quran.insert({ref:"ar",lang:"ar",source:"الله"});
+		Quran.insert({ref:"en",lang:"en",source:"Saheeh International"});
+		Quran.insert({ref:"en2",lang:"en",source:"Muhsin Khan"});
+	}
+	if (Surat.find({}).count() === 0) {
+		console.log('** Surat database empty, filling some example entries.');
+		Surat.insert({no:1,ayat:7,name:{ar:"سورة الفاتحة",en:"Surat al-Fatihah"}});
+		Surat.insert({no:2,ayat:286,name:{ar:"سورة البقرة",en:"Surat al-Baqarah"}});
+		Surat.insert({no:3,ayat:200,name:{ar:"سورة آل عمران",en:"Surat Ali Imran"}});
+	}
+	if (Ayat.find({}).count() === 0) {
+		console.log('** Ayat database empty, filling some example entries.');
+		Ayat.insert({surah:1,ayah:1,text:{ar:"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",en:"In the name of Allah, the Entirely Merciful, the Especially Merciful."}});
+		Ayat.insert({surah:1,ayah:2,text:{ar:"الْحَمْدُ لِلَّـهِ رَبِّ الْعٰلَمِينَ",en:"All praise is to Allah, Lord of the worlds."}});
+		Ayat.insert({surah:1,ayah:3,text:{ar:"الرَّحْمٰنِ الرَّحِيمِ",en:"The Entirely Merciful, the Especially Merciful."}});
+		Ayat.insert({surah:1,ayah:4,text:{ar:"مٰلِكِ يَوْمِ الدِّينِ",en:"Sovereign of the Day of Recompense."}});
+		Ayat.insert({surah:1,ayah:5,text:{ar:"إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِي",en:"It is You we worship and You we ask for help."}});
+		Ayat.insert({surah:1,ayah:6,text:{ar:"اهْدِنَا الصِّرٰطَ الْمُسْتَقِيمَ",en:"Guide us to the straight path."}});
+		Ayat.insert({surah:1,ayah:7,text:{ar:"صِرٰطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّآلِّي",en:"The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray."}});
+		Ayat.insert({surah:2,ayah:1,text:{ar:"الٓمٓ",en:"Alif, Lam, Meem."}});
+	}
 	if (People.find({}).count() === 0) {
 		console.log('** People database empty, filling some example entries.');
 		People.insert({name:{ar:"",en:"Prophet Muhammad ﷺ",id:""},slug:"muhammad",born:"-52",died:"11",era:"0"});
@@ -47,7 +70,6 @@ Meteor.startup(function () {
 
 	// Start SyncedCron for SNAP
 	SyncedCron.start();
-
 });
 
 // analytics.page('page name')
