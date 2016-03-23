@@ -12,7 +12,6 @@ Template.quran.helpers({
 	surat: function () {
 		var lang = Session.get('lang') || 'en';
 		var array = [];
-		
 		for (i = 1; i < 115; i++) { 
 			var surat = Surat.findOne({no:i});
 			var a = (surat && surat.ayat) ? surat.ayat : '-';
@@ -23,7 +22,6 @@ Template.quran.helpers({
 				name: n
 			});
 		}
-		
 		return array;
 	},
 	name: function() {
@@ -55,5 +53,18 @@ Template.quran.helpers({
 		if (perc === 100)
 			return '<span style="color:green">100%</span>';
 		return '<span style="color:red">'+perc+'%</span>';
+	}
+});
+
+Template.quran.events({
+	'click #qsave': function () {
+		var lang = Session.get('lang') || 'en';
+		$('.sname').each(function (i) {
+			var sn = i + 1;
+			var nn = {}; nn['name.'+lang] = $(this).val();
+			var id = Surat.findOne({no: sn})._id;
+			Surat.update(id, { $set: nn });
+		});
+		alert('Saved.');
 	}
 });

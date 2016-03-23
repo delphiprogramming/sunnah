@@ -16,12 +16,21 @@
 				<div class="col-md-3 col-sm-6">{{no}}) {{name}}</div>
 				{{/each}}
 			</div>
-			
-			{{else}}
-			{{#if isAdmin}}
 
-			<div class="col-md-8 col-md-push-2" style="color:red">ADMIN: The Quran is currently marked not ready in this language on our site because it is missing Surat or Ayat.  This language will immediately come available once all ayat are copied or uploaded. Regular users will not see this but will instead see a "coming soon" placeholder until ready.  Jazakallahu khair.</div>
-			<div class="row center mt100">
+
+			{{else}}
+			
+			<div class="row">
+				<div class="col-md-8 col-md-push-2">
+					The Quran is currently not available in this language on our site.  Our contributors will do our best to make it available as soon as possible.  If you would like to help please contact us via the contact link at the bottom middle of this page.  Jazakallahu khair.
+				</div>
+			</div>
+			
+			{{#if isAdmin}}
+			<div class="row center">
+				<div class="col-md-8 col-md-push-2 mt30" style="color:red">ADMIN: You can edit the Quran information below and open Surahs to edit the content until it is ready for the public.</div>
+			</div>
+			<div class="row center mt30">
 				<table id="qEdit" width="100%" class="col-md-8 col-md-push-2">
 					<thead>
 						<th>#</th>
@@ -34,21 +43,23 @@
 				{{#each surat}}
 					<tr>
 						<td>{{no}}</td>
-						<td><input id="name-{{no}}" name="name-{{no}}" value="{{name}}"></td>
+						<td><input id="name-{{no}}" name="name-{{no}}" class="sname" value="{{name}}"></td>
 						<td>{{done}}</td>
 						<td>{{ayat}}</td>
 						<td>{{{percent}}}</td>
-						<td>Edit</td>
+						<td><a href="/quran/{{no}}">Edit</a></td>
 					</tr>
 				{{/each}}
 				</table>
 			</div>
 
-			{{else}}
-			
-			<div class="col-md-8 col-md-push-2">The Quran is currently not available in this language on our site.  Our contributors will do our best to make it available as soon as possible.  If you would like to help please contact us via the contact link at the bottom middle of this page.  Jazakallahu khair.</div>
-			
+			<div class="row mt30">
+				<div class="col-md-8 col-md-push-2 center">
+					<button id="qsave" class="btn btn-primary">Save Changes</button>
+				</div>
+			</div>
 			{{/if}}
+			
 			{{/if}}
 		</div>
 	</div>
