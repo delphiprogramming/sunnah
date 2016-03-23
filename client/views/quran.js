@@ -11,20 +11,45 @@ Template.quran.helpers({
 	},
 	surat: function () {
 		var lang = Session.get('lang') || 'en';
-		var filter = {}; filter['name.'+lang] = true; 
-		var surat = Surat.find({},filter).fetch();
-		return surat;
+		var array = [];
+		
+		for (i = 1; i < 115; i++) { 
+			var surat = Surat.findOne({no:i});
+			var a = (surat && surat.ayat) ? surat.ayat : '-';
+			var n = (surat && surat.name) ? surat.name : '';
+			array.push({
+				no: i,
+				ayat: a,
+				name: n
+			});
+		}
+		
+		return array;
 	},
 	name: function() {
 		var lang = Session.get('lang') || 'en';
 		return this.name[lang];
 	},
+	done: function() {
+		var lang = Session.get('lang') || 'en';
+		var snum = this.no;
+		var query = {};
+		query['text.'+lang] = {$exists:true};
+		query['surah'] = snum;
+		var done = Ayat.find(query).count();
+		return done;
+	},
 	percent: function() {
+		if (this.ayat === '-')
+			return '';
+		
 		var lang = Session.get('lang') || 'en';
 		var snum = this.no;
 		var total = this.ayat;
-		var filter = {}; filter['text.'+lang] = true;
-		var done = Ayat.find({surah:snum},filter).count();
+		var query = {};
+		query['text.'+lang] = {$exists:true};
+		query['surah'] = snum;
+		var done = Ayat.find(query).count();
 		var perc = (done / total) * 100;
 		var perc = Math.round(perc * 100) / 100;
 		if (perc === 100)

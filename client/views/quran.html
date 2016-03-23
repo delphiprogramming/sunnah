@@ -22,9 +22,26 @@
 
 			<div class="col-md-8 col-md-push-2" style="color:red">ADMIN: The Quran is currently marked not ready in this language on our site because it is missing Surat or Ayat.  This language will immediately come available once all ayat are copied or uploaded. Regular users will not see this but will instead see a "coming soon" placeholder until ready.  Jazakallahu khair.</div>
 			<div class="row center mt100">
+				<table id="qEdit" width="100%" class="col-md-8 col-md-push-2">
+					<thead>
+						<th>#</th>
+						<th>Name</th>
+						<th>Done</th>
+						<th>Total</th>
+						<th>Percent</th>
+						<th>&nbsp;</th>
+					</thead>
 				{{#each surat}}
-				<div class="col-md-3 col-sm-6">{{no}}) {{name}} {{{percent}}}</div>
+					<tr>
+						<td>{{no}}</td>
+						<td><input id="name-{{no}}" name="name-{{no}}" value="{{name}}"></td>
+						<td>{{done}}</td>
+						<td>{{ayat}}</td>
+						<td>{{{percent}}}</td>
+						<td>Edit</td>
+					</tr>
 				{{/each}}
+				</table>
 			</div>
 
 			{{else}}
