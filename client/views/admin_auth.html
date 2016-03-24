@@ -1,27 +1,36 @@
 <template name="onlyIfAdmin">
 	{{#if authInProcess}}
-	<main class="valign-wrapper">
-		<h4 class="center-block">Authenticating...</h4>
-	</main>
+    <div id="main" class="nomenu">
+		<div class="container">
+			<div class="row center">
+				<h4 class="center-block">Authenticating...</h4>
+			</div>
+		</div>
+	</div>
 	{{else}}
 		{{#if loggedIn}}
 			{{#if isAdmin}}
 			{{> UI.contentBlock }}
 			{{else}}
-			<main class="valign-wrapper">
-				<h4 class="center-block">You are not an admin.</h4>
-			</main>
+			<div id="main" class="nomenu">
+				<div class="container">
+					<div class="row center">
+						<h4 class="center-block">You are not an admin.</h4>
+					</div>
+				</div>
+			</div>
 			{{/if}}
 		{{else}}
-		<main class="valign-wrapper">
+		<div id="main" class="nomenu">
 			<div class="container">
-				<div class="row">
-					<div class="col s12 m8 offset-m2 l6 offset-l3 z-depth-1" style="margin-top: 20px">
+				<div class="row center">
+					<div class="col-sm-12 col-md-8 col-md-push-2 col-lg-6 col-lg-push-3 z-depth-1" style="margin-top: 20px">
+						<h3 style="margin-bottom: 0px;">You must login to continue..</h3>
 						{{> atForm}}
 					</div>
 				</div>
 			</div>
-		</main>
+		</div>
 		{{/if}}
 	{{/if}}
 </template>
