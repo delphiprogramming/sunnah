@@ -18,7 +18,29 @@
 					</ul>
 				</div>
 				<div class="col-md-10 tCont">
-					<div>...</div>
+					<div class="row">
+						<p class="center">The default site language is <strong>English</strong>.</p>
+					</div>
+					
+					{{#each ssect}}
+					<div class="row mt10">
+						<h3 id="sect-{{section}}">{{name}}</h3>
+						{{#each stext}}
+						<div class="form-horizontal col-md-4">
+							<legend class="center">{{label}}</legend>
+							{{#each langs}}
+							<div class="form-group">
+								<label class="col-md-2 control-label" for="{{../ref}}-{{ref}}">{{capRef}}:</label>  
+								<div class="col-md-10"><input id="{{../ref}}-{{ref}}" name="{{../ref}}-{{ref}}" type="text" class="form-control input-md" value="{{inpVal}}"></div>
+							</div>
+							{{/each}}
+							<div class="col-md-10 col-md-push-2 center" style="height:25px;">
+								<button id="{{ref}}-sub" name="{{ref}}-sub" class="btn btn-primary" style="display:none">Save Changes</button>								
+							</div>
+						</div>
+						{{/each}}
+					</div>
+					{{/each}}
 				</div>
 			</div>
 		</div>
