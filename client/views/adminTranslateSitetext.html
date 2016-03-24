@@ -1,0 +1,27 @@
+<template name="adminTranslateSitetext">
+	{{#onlyIfAdmin}}
+    <div id="main">
+		<div class="row menu">
+			<div class="container">
+				<a href="/admin"><div class="col-md-4 center">Dashboard</div></a>
+				<div class="col-md-4 center">Translate</div>
+				<a href="/admin/users"><div class="col-md-4 center">Users</div></a>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mt30">
+				<div class="col-md-2 tNav">
+					<ul class="nav nav-pills nav-stacked">
+						<li role="presentation"><a href="/admin/translate">Status</a></li>
+						<li role="presentation"><a href="/admin/translate/languages">Languages</a></li>
+						<li role="presentation" class="active"><a>Site Text</a></li>
+					</ul>
+				</div>
+				<div class="col-md-10 tCont">
+					<div>...</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/onlyIfAdmin}}
+</template>

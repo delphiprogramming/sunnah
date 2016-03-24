@@ -135,6 +135,17 @@ footer .links .active {
 	font-weight: bold;
 	color: lightgreen;
 }
+
 .row.menu a {
 	color: #ddd;
+}
+
+.at-form {
+	margin: 0;
+}
+.at-form .at-title,
+.at-form .at-sep,
+.at-form .at-pwd-form,
+.at-form .at-signup-link {
+	display: none !important;
 }

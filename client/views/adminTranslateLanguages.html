@@ -1,4 +1,4 @@
-<template name="adminTranslate">
+<template name="adminTranslateLanguages">
 	{{#onlyIfAdmin}}
     <div id="main">
 		<div class="row menu">
@@ -12,40 +12,35 @@
 			<div class="row mt30">
 				<div class="col-md-2 tNav">
 					<ul class="nav nav-pills nav-stacked">
-						<li role="presentation" class="active"><a>Status</a></li>
-						<li role="presentation"><a href="/admin/translate/languages">Languages</a></li>
+						<li role="presentation"><a href="/admin/translate">Status</a></li>
+						<li role="presentation" class="active"><a>Languages</a></li>
 						<li role="presentation"><a href="/admin/translate/sitetext">Site Text</a></li>
 					</ul>
 				</div>
 				<div class="col-md-10 tCont">
 					<table id="tStat" width="100%">
 						<thead>
-							<th>Item</th>
+							<th>Language</th>
+							<th>Latin Name</th>
+							<th>Native Name</th>
+							<th>Active</th>
 							<th>&nbsp;</th>
-							<th>AR</th>
-							<th>EN</th>
-							<th>ID</th>
 						</thead>
-						<tr class="tss tse">
-							<td>Quran</td>
-							<td>&nbsp;</td>
-							<td>2%</td>
-							<td>1%</td>
-							<td>0%</td>
+						{{#each lang}}
+						<tr class="{{#if first lang this}}tss{{/if}} {{#if last lang this}}tse{{/if}}">
+							<td>{{ref}}</td>
+							<td>{{name}}</td>
+							<td>{{native}}</td>
+							<td><a id="tog-{{ref}}" class="langToggle" style="color:{{act1}}">{{act2}}</a></td>
+							<td><a id="rem-{{ref}}" class="langDelete" style="color:red"><i class="fa fa-times"></i></a></td>
 						</tr>
+						{{/each}}
 						<tr class="tss">
-							<td>Hadith</td>
-							<td>Bukhari</td>
-							<td>2%</td>
-							<td>1%</td>
-							<td>0%</td>
-						</tr>
-						<tr class="tse">
+							<td>Add Language</td>
 							<td>&nbsp;</td>
-							<td>Muslim</td>
-							<td>2%</td>
-							<td>1%</td>
-							<td>0%</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
 						</tr>
 					</table>
 				</div>

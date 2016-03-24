@@ -1,0 +1,54 @@
+.tNav {
+	margin-right: 0px;
+	padding-right: 0px;
+}
+
+.tNav > .nav-pills > li.active > a,
+.tNav > .nav-pills > li.active > a:hover,
+.tNav > .nav-pills > li.active > a:focus {
+	background: rgba(0,128,0,.2) !important;
+	border-radius: 10px 0 0 10px;
+}
+
+.tCont {
+	min-height: 300px;
+	background: rgba(0,128,0,.2);
+	margin: 0;
+	padding: 15px 30px;
+	border-radius: 0 10px 10px 10px;
+}
+
+#tStat thead {
+	background: rgba(1,1,1,.5);
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	font-weight: bold;
+}
+#tStat tfoot {
+	background: #444;
+	background: rgba(1,1,1,.5);
+	color: #f88;
+	font-weight: bold;
+}
+#tStat thead th,
+#tStat tfoot td {
+	padding: 5px 0;
+}
+
+#tStat tr.tss {
+	border-top: 1px solid #444;
+}
+
+#tStat tr.tss td {
+	padding-top: 10px;
+}
+
+#tStat tr.tse td {
+	padding-bottom: 10px;
+}
+
+#tStat thead th:nth-child(1),
+#tStat tfoot td:nth-child(1),
+#tStat tr td:nth-child(1) {
+    padding-left: 10px;
+}
