@@ -53,6 +53,72 @@ Template.adminTranslateSitetext.events({
 			}
 		});
 		hideBut(ref);
+	},
+	'click #add-section': function() {
+		swal({
+			title: 'Add Section',
+			html: '<div class="form-horizontal"><div class="form-group"><label class="col-md-4 control-label" for="as-name">Name:</label><div class="col-md-6"><input id="as-name" name="as-name" type="text" class="form-control input-md" placeholder="Section name"></div></div></div>',
+			showCancelButton: true,
+			closeOnConfirm: false,
+			allowOutsideClick: false
+		},
+		function () {
+			var name = $('#as-name').val();
+			var sects = Ssect.find({});
+			var array = [];
+			sects.forEach(function (sect) {
+				array.push(sect.section);
+			});
+			var high = Math.max.apply(Math, array);
+			var numb = high + 1;
+			Ssect.insert({section: numb, name: name});
+			swal({
+				type: 'success',
+				html: 'You have added a new section: <strong>'+name+'</strong>',
+				timer: 3000
+			});
+		});
+	},
+	'click #add-item': function() {
+		var sects = Ssect.find({});
+		var opts = '';
+		sects.forEach(function(sect){
+			opts += '<option value="'+sect.section+'">'+sect.name+'</option>';
+		});
+		var disp = '<div class="form-horizontal">';
+		disp += '<div class="form-group"><label class="col-md-4 control-label" for="ai-sect">Section:</label><div class="col-md-6"><select id="ai-sect" name="ai-sect" class="form-control">'+opts+'</select></div></div>';
+		disp += '<div class="form-group"><label class="col-md-4 control-label" for="ai-ref">Ref:</label><div class="col-md-6"><input id="ai-ref" name="ai-ref" type="text" class="form-control input-md" placeholder="Short code or reference"></div></div>';
+		disp += '<div class="form-group"><label class="col-md-4 control-label" for="ai-label">Label:</label><div class="col-md-6"><input id="ai-label" name="ai-label" type="text" class="form-control input-md" placeholder="Label for admin section"></div></div>';
+		disp += '<div class="form-group"><label class="col-md-4 control-label" for="ai-english">English:</label><div class="col-md-6"><input id="ai-english" name="ai-english" type="text" class="form-control input-md" placeholder="English text"></div></div>';
+		disp += '</div>';
+		swal({
+			title: 'Add Item',
+			html: disp,
+			showCancelButton: true,
+			closeOnConfirm: false,
+			allowOutsideClick: false
+		},
+		function () {
+			var sect = $('#ai-sect').val() * 1;
+			var ref = $('#ai-ref').val();
+			var label = $('#ai-label').val();
+			var english = $('#ai-english').val();
+			
+			var items = Stext.find({section:sect});
+			var array = [];
+			items.forEach(function (item) {
+				array.push(item.order);
+			});
+			var high = Math.max.apply(Math, array);
+			var numb = high + 1;
+			Stext.insert({section: sect, order: numb, ref: ref, label: label, en: english});
+			
+			swal({
+				type: 'success',
+				html: 'You have added a new item:<br><br>'+ref+'<br>'+label+'<br>'+english,
+				timer: 3000
+			});
+		});
 	}
 });
 

@@ -20,6 +20,9 @@
 				<div class="col-md-10 tCont">
 					<div class="row">
 						<p class="center">The default site language is <strong>English</strong>.</p>
+						{{#if isOwner}}
+						<p class="center"><a id="add-section"><i class="fa fa-plus-circle"></i> Add Section</a><a id="add-item" style="margin-left: 30px;"><i class="fa fa-plus-circle"></i> Add Item</a></p>
+						{{/if}}
 					</div>
 					
 					{{#each ssect}}
@@ -27,14 +30,14 @@
 						<h3 id="sect-{{section}}">{{name}}</h3>
 						{{#each stext}}
 						<div class="form-horizontal col-md-4">
-							<legend class="center">{{label}}</legend>
+							<legend class="center">{{label}} <small style="color:#999;font-size:.6em;float:right;">({{ref}})</small></legend>
 							{{#each langs}}
 							<div class="form-group">
 								<label class="col-md-2 control-label" for="{{../ref}}-{{ref}}">{{capRef}}:</label>  
 								<div class="col-md-10"><input id="{{../ref}}-{{ref}}" name="{{../ref}}-{{ref}}" type="text" class="form-control input-md" value="{{inpVal}}"></div>
 							</div>
 							{{/each}}
-							<div class="col-md-10 col-md-push-2 center" style="height:25px;">
+							<div class="col-md-10 col-md-push-2 center" style="height:35px;">
 								<button id="{{ref}}-sub" name="{{ref}}-sub" class="btn btn-primary" style="display:none">Save Changes</button>								
 							</div>
 						</div>

@@ -22,22 +22,22 @@
 			
 			<div class="row">
 				<div class="col-md-8 col-md-push-2">
-					The Quran is currently not available in this language on our site.  Our contributors will do our best to make it available as soon as possible.  If you would like to help please contact us via the contact link at the bottom middle of this page.  Jazakallahu khair.
+					{{t 'qna'}}
 				</div>
 			</div>
 			
 			{{#if isAdmin}}
 			<div class="row center">
-				<div class="col-md-8 col-md-push-2 mt30" style="color:red">ADMIN: You can edit the Quran information below and open Surahs to edit the content until it is ready for the public.</div>
+				<div class="col-md-8 col-md-push-2 mt30" style="color:red">{{t 'qam'}}</div>
 			</div>
 			<div class="row center mt30">
 				<table id="qEdit" width="100%" class="col-md-8 col-md-push-2">
 					<thead>
-						<th>#</th>
-						<th>Name</th>
-						<th>Done</th>
-						<th>Total</th>
-						<th>Percent</th>
+						<th>&nbsp;</th>
+						<th>{{t 'surah'}}</th>
+						<th>{{t 'done'}}</th>
+						<th>{{t 'total'}}</th>
+						<th>{{t 'percent'}}</th>
 						<th>&nbsp;</th>
 					</thead>
 				{{#each surat}}
@@ -47,7 +47,7 @@
 						<td>{{done}}</td>
 						<td>{{ayat}}</td>
 						<td>{{{percent}}}</td>
-						<td><a href="/quran/{{no}}">Edit</a></td>
+						<td><a href="/quran/{{no}}"><i class="fa fa-pencil-square-o"></i></a></td>
 					</tr>
 				{{/each}}
 				</table>
