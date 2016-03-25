@@ -20,20 +20,20 @@
 				<div class="col-md-10 tCont">
 					<table id="tStat" width="100%">
 						<thead>
-							<th>Item</th>
-							<th>&nbsp;</th>
-							<th>AR</th>
-							<th>EN</th>
-							<th>ID</th>
+							<th width="{{w1}}%">Item</th>
+							<th width="{{w1}}%">&nbsp;</th>
+							{{#each lang}}
+							<th width="{{w2}}%" class="center">{{capRef}}</th>
+							{{/each}}
 						</thead>
 						<tr class="tss tse">
 							<td>Quran</td>
 							<td>&nbsp;</td>
-							<td>2%</td>
-							<td>1%</td>
-							<td>0%</td>
+							{{#each lang}}
+							<th class="center">{{{qurPer}}}</th>
+							{{/each}}
 						</tr>
-						<tr class="tss">
+<!--						<tr class="tss">
 							<td>Hadith</td>
 							<td>Bukhari</td>
 							<td>2%</td>
@@ -46,7 +46,7 @@
 							<td>2%</td>
 							<td>1%</td>
 							<td>0%</td>
-						</tr>
+						</tr> -->
 					</table>
 				</div>
 			</div>
