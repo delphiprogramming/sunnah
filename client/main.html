@@ -82,10 +82,10 @@
 </template>
 
 <template name="_loginButtonsAdditionalLoggedInDropdownActions">
-	<a href="/profile"><button class="btn btn-block btn-{{active 'profile'}}">My Profile</button></a>
-	<a href="/snap"><button class="btn btn-block btn-{{active 'snap'}}">Social Network Poster</button></a>
+	<a href="/profile"><button class="btn btn-block btn-{{active 'profile'}}">{{t 'mmp'}}</button></a>
+	<a href="/snap"><button class="btn btn-block btn-{{active 'snap'}}">{{t 'msn'}}</button></a>
 	{{#if isInRole 'admin,owner'}}
-	<a href="/admin"><button class="btn btn-block btn-{{active 'admin'}}">Admin</button></a>
+	<a href="/admin"><button class="btn btn-block btn-{{active 'admin'}}">{{t 'mad'}}</button></a>
 	<li class="divider"></li>
 	{{/if}}
 </template>
