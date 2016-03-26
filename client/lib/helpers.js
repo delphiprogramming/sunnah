@@ -35,3 +35,11 @@ Template.registerHelper('t', function(ref) {
 	var out = (stext && stext[lang]) ? stext[lang] : def;
 	return out;
 });
+
+function isOwner() {
+	return Roles.userIsInRole(Meteor.user(), ['owner']);
+}
+
+function isAdmin() {
+	return Roles.userIsInRole(Meteor.user(), ['owner', 'admin']);
+}

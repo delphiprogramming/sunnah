@@ -23,7 +23,7 @@ Template.adminTranslateLanguages.helpers({
 Template.adminTranslateLanguages.events({
 	'click .langToggle': function (e) {
 		var ln = e.target.id.replace('tog-', '');
-		if (ln === 'ar' || ln === 'en' || ln === 'id') {
+		if ((ln === 'ar' || ln === 'en' || ln === 'id') && (!Roles.userIsInRole(Meteor.user(), ['owner']))) {
 			swal({type: 'error', text: 'Can not disable a default language', timer: 2000, showConfirmButton: false});
 			return false;
 		}
