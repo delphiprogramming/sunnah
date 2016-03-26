@@ -1,0 +1,54 @@
+<template name="quranSurah">
+    <div id="main" class="nomenu">
+		<div class="container">
+			{{#if ready}}
+			
+			<div class="row center mt10">
+				DataTables..
+			</div>
+
+
+			{{else}}
+						
+			{{#if isAdmin}}
+			<div class="row center">
+				<div class="mt10" style="color:red">{{t 'qam'}}</div>
+			</div>
+			<div class="row center mt30" style="background:rgba(0,128,0,.5); padding:10px">
+				<h4>1) Surat al-Fatihah (The Opening) — سورة الفاتحة</h4>
+			</div>
+			<div class="row center mt30">
+				<table id="qEdit" width="100%" class="col-md-8 col-md-push-2">
+					<thead>
+						<th width="10%">{{t 'ayah'}}</th>
+						<th width="90%">{{t 'text'}}</th>
+					</thead>
+				{{#each ayat}}
+					<tr>
+						<td>{{ayah}}</td>
+						<td><div id="qse-1-{{ayah}}" class="qseDiv" contentEditable="true">{{text}}</div></td>
+						<!--<td>{{text}}</td>-->
+					</tr>
+				{{/each}}
+				</table>
+			</div>
+
+			<div class="row mt30">
+				<div class="col-md-8 col-md-push-2 center">
+					<button id="qse-1-save" class="qse-save btn btn-primary" style="display:none">Save Changes</button>
+				</div>
+			</div>
+			{{else}}
+
+			<div class="row">
+				<div class="col-md-8 col-md-push-2">
+					{{t 'qna'}}
+				</div>
+			</div>
+
+			{{/if}}
+			
+			{{/if}}
+		</div>
+	</div>
+</template>
