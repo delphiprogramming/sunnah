@@ -30,4 +30,32 @@ Configuration files contain private data and are ignored from the repository.  O
 }
 ```
 
-Note: You must get these values by creating a Facebook and Google OAuth application following the Meteor OAuth documentation and using the source and callback URL as `localhost:3000`.  Please open an issue if more help is needed with this and I will possibly add this to the README later.
+You must create the Facebook and Google logins yourself via their developer tools and replace the `...` above with the information they give you. When creating the OAuth logins both will ask for your site's address or origin URL. Since this is development on your computer and not our site you should (almost) always use `http://localhost:3000` for address or origin when Facebook or Google asks. When Google asks for your "Authorized redirect URIs" enter `http://localhost:3000/_oauth/google?close` and save.  After doing this you should have all the information needed to create your local config json file.
+
+Facebook: https://developers.facebook.com
+Google: https://console.developers.google.com
+
+Articles and videos to help:
+- https://www.meteor.com/accounts
+- FB: https://www.youtube.com/watch?v=h2js_rh4A4o
+- FB: https://themeteorchef.com/recipes/roll-your-own-authentication/#tmc-facebook
+- G: https://www.youtube.com/watch?v=8Gk4u3zNtDk
+- G: https://themeteorchef.com/recipes/roll-your-own-authentication/#tmc-google
+
+# To Do's
+
+1. Finish for admins at: `/quran`
+2. Create for admins at: `/quran/1`
+3. Create for public at `/quran` , `/quran/1` , `/quran/1/1` , `/quran/1/1-3`
+4. Fix styling for `/admin/users`
+5. Add additional roles for Author, Editor and Moderator.
+6. Create Dashboard showing activity for creates, edits, etc.
+7. Create functionality for ban user, undo edit, revisions, etc. BEFORE starting next content areas
+8. Scholars: create pages and interfaces for viewing, adding and editing
+9. Quotes: create pages and interfaces for viewing, adding and editing
+10. Hadith: admin interface needed for managing collections
+11. Hadith: create pages and interfaces for viewing, adding and editing
+12. Books: admin interface needed for managing collections
+13. Books: create pages and interfaces for viewing, adding and editing
+
+etc...
