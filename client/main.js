@@ -3,6 +3,8 @@ BlazeLayout.setRoot('body');
 Template.layout.helpers({
 	active: function(tab) {
 		var page = FlowRouter.getRouteName();
+		if (tab === 'tools' && (page === 'tools' || page === 'toolsApi' || page === 'toolsPray'))
+			return 'active';
 		if (tab === page)
 			return 'active';
 		return '';
