@@ -12,7 +12,7 @@ Template.quranSurah.helpers({
 	ayat: function () {
 		var lang = Session.get('lang') || 'en';
 		var sno = 1;
-		var surah = Surat.findOne({no: sno});
+		var surah = Surat.findOne({surah: sno});
 		var ayat = (surah && surah.ayat) ? surah.ayat : 0;
 		var array = [];
 		for (i = 1; i < ayat + 1; i++) {
@@ -47,7 +47,7 @@ Template.quranSurah.events({
 
 function compAyat(s) {
 	var lang = Session.get('lang') || 'en';
-	var surah = Surat.findOne({no: s});
+	var surah = Surat.findOne({surah: s});
 	var ayat = (surah && surah.ayat) ? surah.ayat : 0;
 	var res = true;
 	

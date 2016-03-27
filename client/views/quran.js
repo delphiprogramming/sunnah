@@ -13,7 +13,7 @@ Template.quran.helpers({
 		var lang = Session.get('lang') || 'en';
 		var array = [];
 		for (i = 1; i < 115; i++) { 
-			var surat = Surat.findOne({no:i});
+			var surat = Surat.findOne({surah:i});
 			var a = (surat && surat.ayat) ? surat.ayat : '-';
 			var n = (surat && surat.name) ? surat.name : '';
 			array.push({
@@ -62,7 +62,7 @@ Template.quran.events({
 		$('.sname').each(function (i) {
 			var sn = i + 1;
 			var nn = {}; nn['name.'+lang] = $(this).val();
-			var id = Surat.findOne({no: sn})._id;
+			var id = Surat.findOne({surah: sn})._id;
 			Surat.update(id, { $set: nn });
 		});
 		alert('Saved.');
