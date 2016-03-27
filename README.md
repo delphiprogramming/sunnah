@@ -8,12 +8,12 @@ Sunnah.co is a waqf managed by the us-Sunnah Foundation to make Islamic informat
 2. `curl https://install.meteor.com/ | sh` (unless Meteor's already installed)
 3. `git clone https://github.com/ussunnah/sunnah.git` or `git clone git@github.com:ussunnah/sunnah.git`
 4. `cd sunnah`
-5. Configure Facebook and Google OAuth services for localhost in `local-config.json`
-6. `meteor --settings local-config.json`
+5. Configure Facebook and Google OAuth services for localhost in `local.settings.json`
+6. `meteor --settings local.settings.json`
 
 # Config file examples
 
-Configuration files contain private data and are ignored from the repository.  Our gitignore for this project follows the pattern of `*-config.js` and `*-config.json` for all configuration files needed.  The only file you will need to run this locally and do development is a `local-config.json` which you will create in the root directory of this project (next to this readme) and use whenever running the application.
+Configuration files contain private data and are ignored from the repository.  Our gitignore for this project follows the pattern of `*-config.js` and `*.settings.json` for all configuration files needed (and `mup.json`).  The only file you will need to run this locally and do development is a `local.settings.json` which you will create in the root directory of this project (next to this readme) and use whenever running the application.
 
 ```
 {
