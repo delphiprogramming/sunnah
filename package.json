@@ -1,0 +1,22 @@
+{
+  "name": "sunnah",
+  "version": "1.0.0",
+  "description": "Sunnah.co is a waqf managed by the us-Sunnah Foundation to make Islamic information and resources open to the entire community.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ussunnah/sunnah.git"
+  },
+  "author": "Abdul Fattah Ikhsan <ikhsannetwork@gmail.com> (http://ikhsannetwork.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ussunnah/sunnah/issues"
+  },
+  "homepage": "https://github.com/ussunnah/sunnah",
+  "dependencies": {
+    "meteor-node-stubs": "0.2.3"
+  }
+}
