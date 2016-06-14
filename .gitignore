@@ -4,3 +4,4 @@ settings.json
 *.settings.json
 *-config.js
 *-config.json
+node_modules/
