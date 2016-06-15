@@ -1,10 +1,20 @@
+Template.quran.onCreated(function() {
+	var instance = this;
+	instance.autorun(function() {
+		instance.lang = Session.get('lang') || 'en';
+		instance.subscribe('quran');
+		instance.subscribe('surat');
+		instance.subscribe('ayat', instance.lang);
+	});
+});
+
 Template.quran.helpers({
 	ready: function() {
 		var lang = Session.get('lang') || 'en';
-		var sfilt = {}; sfilt['name.'+lang] = true; 
+		var sfilt = {}; sfilt['name.'+lang] = true;
 		var surat = Surat.find({},sfilt).count();
-		var afilt = {}; sfilt['text.'+lang] = true; 
-		var ayat = Surat.find({},afilt).count();		
+		var afilt = {}; sfilt['text.'+lang] = true;
+		var ayat = Surat.find({},afilt).count();
 		if (surat < 114 || ayat < 6236)
 			return false;
 		return true;
@@ -12,7 +22,7 @@ Template.quran.helpers({
 	surat: function () {
 		var lang = Session.get('lang') || 'en';
 		var array = [];
-		for (i = 1; i < 115; i++) { 
+		for (i = 1; i < 115; i++) {
 			var surat = Surat.findOne({surah:i});
 			var a = (surat && surat.ayat) ? surat.ayat : '-';
 			var n = (surat && surat.name) ? surat.name : '';
@@ -40,7 +50,7 @@ Template.quran.helpers({
 	percent: function() {
 		if (this.ayat === '-')
 			return '';
-		
+
 		var lang = Session.get('lang') || 'en';
 		var snum = this.no;
 		var total = this.ayat;
