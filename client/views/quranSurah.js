@@ -1,17 +1,28 @@
+Template.quranSurah.onCreated(function() {
+	var instance = this;
+	instance.autorun(function() {
+		instance.lang = Session.get('lang') || 'en';
+		instance.sno = parseInt(FlowRouter.getParam('surah'));
+		instance.subscribe('quran');
+		instance.subscribe('surat');
+		instance.subscribe('editAyat', instance.lang, instance.sno);
+	});
+});
+
 Template.quranSurah.helpers({
 	ready: function() {
 		var lang = Session.get('lang') || 'en';
-		var sfilt = {}; sfilt['name.'+lang] = true; 
+		var sfilt = {}; sfilt['name.'+lang] = true;
 		var surat = Surat.find({},sfilt).count();
-		var afilt = {}; sfilt['text.'+lang] = true; 
-		var ayat = Surat.find({},afilt).count();		
+		var afilt = {}; sfilt['text.'+lang] = true;
+		var ayat = Surat.find({},afilt).count();
 		if (surat < 114 || ayat < 6236)
 			return false;
 		return true;
 	},
 	ayat: function () {
 		var lang = Session.get('lang') || 'en';
-		var sno = 1;
+		var sno = parseInt(FlowRouter.getParam('surah'));
 		var surah = Surat.findOne({surah: sno});
 		var ayat = (surah && surah.ayat) ? surah.ayat : 0;
 		var array = [];
@@ -24,6 +35,10 @@ Template.quranSurah.helpers({
 			});
 		}
 		return array;
+	},
+	surat: function() {
+		var sno = parseInt(FlowRouter.getParam('surah'));
+		return Surat.findOne({surah: sno});
 	}
 });
 
@@ -50,7 +65,7 @@ function compAyat(s) {
 	var surah = Surat.findOne({surah: s});
 	var ayat = (surah && surah.ayat) ? surah.ayat : 0;
 	var res = true;
-	
+
 	for (i = 1; i < ayat + 1; i++) {
 		var a = Ayat.findOne({surah: s, ayah: i});
 		var at = (a && a.text && a.text[lang]) ? a.text[lang] : '';

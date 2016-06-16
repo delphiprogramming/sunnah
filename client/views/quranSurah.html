@@ -2,20 +2,22 @@
     <div id="main" class="nomenu">
 		<div class="container">
 			{{#if ready}}
-			
+
 			<div class="row center mt10">
 				DataTables..
 			</div>
 
 
 			{{else}}
-						
+
 			{{#if isAdmin}}
 			<div class="row center">
 				<div class="mt10" style="color:red">{{t 'qam'}}</div>
 			</div>
 			<div class="row center mt30" style="background:rgba(0,128,0,.5); padding:10px">
-				<h4>1) Surat al-Fatihah (The Opening) — سورة الفاتحة</h4>
+        {{#with surat}}
+				    <h4>{{surah}}) Surat {{name.en}} ({{meaning.en}}) — السورة {{name.ar}}</h4>
+        {{/with}}
 			</div>
 			<div class="row center mt30">
 				<table id="qEdit" width="100%" class="col-md-8 col-md-push-2">
@@ -47,7 +49,7 @@
 			</div>
 
 			{{/if}}
-			
+
 			{{/if}}
 		</div>
 	</div>
