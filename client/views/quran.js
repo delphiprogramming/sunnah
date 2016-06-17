@@ -11,10 +11,10 @@ Template.quran.onCreated(function() {
 Template.quran.helpers({
 	ready: function() {
 		var lang = Session.get('lang') || 'en';
-		var sfilt = {}; sfilt['name.'+lang] = true;
-		var surat = Surat.find({},sfilt).count();
-		var afilt = {}; sfilt['text.'+lang] = true;
-		var ayat = Surat.find({},afilt).count();
+		var sfilt = {}; sfilt['name.'+lang] = {$exists:true};
+		var surat = Surat.find(sfilt).count();
+		var afilt = {}; afilt['text.'+lang] = {$exists:true};
+		var ayat = Ayat.find(afilt).count();
 		if (surat < 114 || ayat < 6236)
 			return false;
 		return true;
