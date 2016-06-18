@@ -6,6 +6,7 @@ Template.quranSurah.onCreated(function() {
 		instance.subscribe('quran');
 		instance.subscribe('surat');
 		instance.subscribe('editAyat', instance.lang, instance.sno);
+		instance.subscribe('ayatQuran', instance.sno);
 	});
 });
 
@@ -16,7 +17,7 @@ Template.quranSurah.helpers({
 		var surat = Surat.find(sfilt).count();
 		var afilt = {}; afilt['text.'+lang] = {$exists: true};
 		var ayat = Ayat.find(afilt).count();
-		if (surat < 114 || ayat < 6236)
+		if (surat < 114 || ayat === 0)
 			return false;
 		return true;
 	},

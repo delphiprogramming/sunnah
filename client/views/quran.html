@@ -2,7 +2,7 @@
     <div id="main" class="nomenu">
 		<div class="container">
 			{{#if ready}}
-			
+
 			<div class="row center mt10">
 				<div id="quran-search" class="col-md-6 col-md-push-3">
 					<div class="input-group input-group-lg">
@@ -13,19 +13,21 @@
 			</div>
 			<div class="row center mt50">
 				{{#each surat}}
-				<div class="col-md-3 col-sm-6">{{no}}) {{name}}</div>
+				<div class="col-md-3 col-sm-6">
+          {{no}}) <a href="/quran/{{no}}">{{name}}</a>
+        </div>
 				{{/each}}
 			</div>
 
 
 			{{else}}
-			
+
 			<div class="row">
 				<div class="col-md-8 col-md-push-2">
 					{{t 'qna'}}
 				</div>
 			</div>
-			
+
 			{{#if isAdmin}}
 			<div class="row center">
 				<div class="col-md-8 col-md-push-2 mt30" style="color:red">{{t 'qam'}}</div>
@@ -59,7 +61,7 @@
 				</div>
 			</div>
 			{{/if}}
-			
+
 			{{/if}}
 		</div>
 	</div>
