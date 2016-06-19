@@ -26,10 +26,12 @@ Template.quran.helpers({
 			var surat = Surat.findOne({surah:i});
 			var a = (surat && surat.ayat) ? surat.ayat : '-';
 			var n = (surat && surat.name) ? surat.name : '';
+			var m = (surat && surat.meaning) ? surat.meaning : '';
 			array.push({
 				no: i,
 				ayat: a,
-				name: n
+				name: n,
+				meaning: m
 			});
 		}
 		return array;
@@ -37,6 +39,9 @@ Template.quran.helpers({
 	name: function() {
 		var lang = Session.get('lang') || 'en';
 		return this.name[lang];
+	},
+	arName: function() {
+		return this.name['ar'];
 	},
 	done: function() {
 		var lang = Session.get('lang') || 'en';
@@ -75,6 +80,6 @@ Template.quran.events({
 			var id = Surat.findOne({surah: sn})._id;
 			Surat.update(id, { $set: nn });
 		});
-		alert('Saved.');
+		sweetAlert('Saved!');
 	}
 });

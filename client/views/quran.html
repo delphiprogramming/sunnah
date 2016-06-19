@@ -12,11 +12,25 @@
 				</div>
 			</div>
 			<div class="row center mt50">
-				{{#each surat}}
-				<div class="col-md-3 col-sm-6">
-          {{no}}) <a href="/quran/{{no}}">{{name}}</a>
+        {{#each surat}}
+				<div class="col-md-4 col-sm-6">
+          <div class="select-surah">
+            <a class="link-ayat row" href="/quran/{{no}}">
+            <div class="col-xs-2">
+              {{no}}
+            </div>
+            <div class="col-xs-7">
+              <span class="surah-name">{{name}}</span>
+              <br>
+              <span class="text-uppercase meaning">{{meaning.en}}</span>
+            </div>
+            <div class="col-xs-3 text-right">
+              {{arName}}
+            </div>
+            </a>
+          </div>
         </div>
-				{{/each}}
+        {{/each}}
 			</div>
 
 

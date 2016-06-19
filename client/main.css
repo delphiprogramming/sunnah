@@ -149,3 +149,26 @@ footer .links .active {
 .at-form .at-signup-link {
 	display: none !important;
 }
+
+.link-ayat {
+	color: #333;
+}
+
+.select-surah .link-ayat {
+	display: block;
+	padding: 10px 10px;
+}
+
+.select-surah .link-ayat:hover{
+	background-color: rgba(0,128,0,.8);
+	color: #fff;
+}
+
+.surah-name {
+	font-weight: bold;
+}
+
+.meaning {
+	font-size: 9px;
+	font-weight: bold;
+}
